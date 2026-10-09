@@ -1,24 +1,20 @@
-#
-# This file is the eltt2 recipe.
-#
-
-SUMMARY = "Simple eltt2 application"
+SUMMARY = "Infineon Embedded Linux TPM Toolbox 2 (ELTT2)"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 SRC_URI = "file://eltt2.c \
-       file://eltt2.h \
-	   file://Makefile \
-		  "
-
+           file://eltt2.h \
+           file://Makefile \
+          "
 S = "${WORKDIR}"
-do_compile (){
-        oe_runmake
+
+TARGET_CC_ARCH += "${LDFLAGS}"
+
+do_compile() {
+    oe_runmake
 }
 
 do_install() {
-		mkdir -p ${D}/usr/bin
-		install -m 0755 eltt2 ${D}/usr/bin
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/eltt2 ${D}${bindir}/
 }
-
-

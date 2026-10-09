@@ -1,5 +1,9 @@
 # Tools
-IMAGE_INSTALL += " mtd-utils mdio-tool pciutils canutils atecc-util eltt2 update-eth-mac resize-script"
+# lec-mkt1200
+IMAGE_INSTALL:append:lec-mtk-i1200-ufs = " mtd-utils mdio-tool pciutils can-utils atecc-util eltt2 update-eth-mac resize-script otg-switch "
+IMAGE_INSTALL:append:lec-mtk-i1200-qspi = " mtd-utils mdio-tool pciutils can-utils atecc-util eltt2 update-eth-mac resize-script otg-switch "
+
+
 #IMAGE_INSTALL += " linux-firmware-iwlwifi "
 #IMAGE_INSTALL += " docker python3-docker-compose "
 
